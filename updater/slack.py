@@ -13,7 +13,7 @@ class Notifier:
         self._token = os.getenv("INTERNAL_AUTH_TOKEN") or self._missing_config("INTERNAL_AUTH_TOKEN environment variable")
         self._url = (
             os.getenv("SLACK_NOTIFICATION_URL")
-            or "https://slack-notifications.tax.service.gov.uk/v2/notification"
+            or "https://slack-notifications.tax.service.gov.uk/api/v2/notification"
         )
 
     def send_message(self, text: str, blocks: List[Dict[str, Any]]) -> None:
