@@ -99,7 +99,7 @@ start-git-server: stop-git-server
 		--rm \
 		--publish "$(GIT_PORT):$(GIT_PORT)" \
 		--name gitea \
-		gitea/gitea:1.12.5 \
+		dockerhub.tax.service.gov.uk/gitea/gitea:1.12.5 \
 		> /dev/null
 	@while ! curl --silent http://$(GIT_HOST) >/dev/null; do sleep 0.1; done
 
