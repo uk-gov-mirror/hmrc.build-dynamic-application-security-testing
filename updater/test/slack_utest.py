@@ -52,7 +52,7 @@ class TestSlackNotifier(TestCase):
     def _register_slack_api_success() -> None:
         httpretty.register_uri(
             httpretty.POST,
-            "https://slack-notifications.tax.service.gov.uk/v2/notification",
+            "https://slack-notifications.tax.service.gov.uk/api/v2/notification",
             body=json.dumps({"successfullySentTo": ["slack-channel"]}),
             status=200,
         )
@@ -61,7 +61,7 @@ class TestSlackNotifier(TestCase):
     def _register_slack_api_failure(status: int) -> None:
         httpretty.register_uri(
             httpretty.POST,
-            "https://slack-notifications.tax.service.gov.uk/v2/notification",
+            "https://slack-notifications.tax.service.gov.uk/api/v2/notification",
             body=json.dumps({"errors": [{"code": "error", "message": "statusCode: 404, msg: 'channel_not_found'"}]}),
             status=status,
         )
